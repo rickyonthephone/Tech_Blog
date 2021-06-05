@@ -1,0 +1,40 @@
+{
+  "name": "tech_blog",
+  "version": "1.0.0",
+  "description": "Tech Blog",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickyonthephone/Tech_Blog.git"
+  },
+  "keywords": [
+    "Tech",
+    "Blog",
+    "Week14",
+    "MVC"
+  ],
+  "author": "Richard Crippen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickyonthephone/Tech_Blog/issues"
+  },
+  "homepage": "https://github.com/rickyonthephone/Tech_Blog#readme"
+}
