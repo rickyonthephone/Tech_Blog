@@ -6,12 +6,17 @@ const commentData = require('./comments.json');
 
 const seedTechBlogDb = async () => {
     await sequelize.sync({ force: true });
-    await users.bulkCreate(userData, {
+        console.log ('\n---------- DATABASE SYNCED ----------\n');
+    await users.bulkCreate(userData, 
+      {
         individualHooks: true,
         returning: true,
       });
-    await posts.bulkCreate(postData)
-    await comments.bulkCreate(commentData)
+        console.log('\n---------- USERS SEEDED ----------\n');
+    await posts.bulkCreate(postData);
+        console.log('\n---------- POSTS SEEDED ----------\n');
+    await comments.bulkCreate(commentData);
+        console.log('\n---------- COMMENTS SEEDED ----------\n');
 
     process.exit(0);
 };
