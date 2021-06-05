@@ -1,0 +1,16 @@
+[{
+    "comment_text": "Python is becoming more popular than JavaScript.",
+    "user_id": 2,
+    "post_id": 1
+},
+{
+    "comment_text": "CSS is easy for everyone and you know it.",
+    "user_id": 3,
+    "post_id": 2
+},
+{
+    "comment_text": "Handlebars is way more useful than EJS and the syntax is easier.",
+    "user_id": 1,
+    "post_id": 3
+}
+]

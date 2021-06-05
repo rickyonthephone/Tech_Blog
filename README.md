@@ -2,7 +2,7 @@
 
  Build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. Deploy the app to Heroku. The app follows the MVC paradigm in its architectural structure and uses Handlebars.js for templating language, Sequelize as the ORM, and the express-session npm package for the authentication process.
 
- Deployment URL: 
+ Deployment URL: https://atechblog.herokuapp.com/
  
  GitHub repo: https://github.com/rickyonthephone/Tech_Blog
 
