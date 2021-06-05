@@ -2,24 +2,24 @@
     { 
       "username": "Ayla",  
       "title": "Why I like JavaScript",
-      "snippet": "JavaScript is everywhere on the web. For that reason I think it is the most important language to learn.",
-      "post": "JavaScript is everywhere on the web. For that reason I think it is the most important language to learn. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "snippet": "JavaScript is everywhere on the web.",
+      "post": "JavaScript is everywhere on the web. For that reason I think it is the most important language to learn.", 
       "industry_years": 1,
       "date_posted": "Apr 5, 2020"
     },
     {
       "username": "DisForDash",
       "title": "CSS Made Easy",
-      "snippet": "CSS can be a real pain, but here are some tips and tricks to make CSS and you get along better.",
-      "post": "CSS can be a real pain, but here are some tips and tricks to make CSS and you get along better. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "snippet": "CSS can be a real pain",
+      "post": "CSS can be a real pain, but here are some tips and tricks to make CSS and you get along better.", 
       "industry_years": 3,
       "date_posted": "Jan 23, 2018"
     },
     {
       "username": "JackSansSmack",
       "title": "Ditch That and Use This",
-      "snippet": "Are you using Handlebars for server-side rendering? Ditch that and use EJS.",
-      "post": "Are you using Handlebars for server-side rendering? Ditch that and use EJS. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "snippet": "Are you using Handlebars?",
+      "post": "Are you using Handlebars for server-side rendering? Ditch that and use EJS.",
       "industry_years": 8,
       "date_posted": "Sept 14, 2019"
     }
