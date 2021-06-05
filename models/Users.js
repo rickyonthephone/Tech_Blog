@@ -1,14 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connect');
 
-class Users extends Model {
+class users extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-Users.init(
+users.init(
   {
     user_id: {
       type: DataTypes.INTEGER,
@@ -40,6 +40,7 @@ Users.init(
     },
   },
   {
+//hooks used here to hash user passwords before sending to the db - using 8 hashes vs. 10
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 8);
@@ -58,4 +59,4 @@ Users.init(
   }
 );
 
-module.exports = Users;
+module.exports = users;
