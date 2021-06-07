@@ -18,10 +18,11 @@ router.post('/', withAuth, async (req, res) => {
   });
 
   //Get a specific post by it's id
-  router.get('/:id', (req, res) => {
+  router.get('/:id', withAuth, (req, res) => {
       posts.findbyPk({
           where: {
-            id: req.params.id
+            id: req.params.id,
+            user_id: req.session.user_id,
           },
           attributes: [
             "id",
@@ -31,19 +32,23 @@ router.post('/', withAuth, async (req, res) => {
             "industry_years",
             "date_posted"
           ],
-          include: [{
-            model: comments, 
-            attributes: [
-                'id',
-                'comment_text', 
-                'post_id', 
-                'user_id'
-            ],
+          include: [
+            {
             model: users,
             attributes: [
                 'username'
             ]
-        }]
+            },   
+            {
+                model: comments, 
+                attributes: [
+                    'id',
+                    'comment_text', 
+                    'post_id', 
+                    'user_id'
+                ],
+            }
+        ]
       })
 
     .then (postData => {
@@ -61,7 +66,8 @@ router.post('/', withAuth, async (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
     posts.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        user_id: req.session.user_id,
       }
     })
       .then(postData => {
