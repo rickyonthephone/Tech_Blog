@@ -22,16 +22,16 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
       const userData = await users.findOne({ where: { email: req.body.email } });
-  //if userData does not equal what is found send message
+  //if userData does not equal what email found send message
       if (!userData) {
-        res.status(400).json({ message: 'Incorrect email or password, please try again' });
+        res.status(400).json({ message: 'Email does not exist, please try again' });
         return;
       }
   //validate user's password
       const validPassword = await userData.checkPassword(req.body.password);
   //if password provided does not match, send message otherwise authenticate log in
       if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect email or password, please try again' });
+        res.status(400).json({ message: 'Incorrect password, please try again' });
         return;
       }
   
@@ -45,3 +45,16 @@ router.post('/login', async (req, res) => {
       res.status(400).json(err);
     }
   });
+
+  //Log out - end session
+  router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+  
+  module.exports = router;
