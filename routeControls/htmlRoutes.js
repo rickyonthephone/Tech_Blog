@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
       const postData = await posts.findByPk(req.params.id, {
         include: [
@@ -50,3 +50,5 @@ router.get('/post/:id', async (req, res) => {
         res.status(400).json('No such post exists');
     }
 });
+
+module.exports = router;
