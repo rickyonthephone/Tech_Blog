@@ -19,10 +19,10 @@ router.post('/', withAuth, async (req, res) => {
 
   //Get a specific post by it's id
   router.get('/:id', (req, res) => {
-      posts.findByPk({
+      posts.findOne({
           where: {
             id: req.params.id,
-            user_id: req.session.user_id,
+            // user_id: req.session.user_id,       remember to change this line once authentication is active. 
           },
           attributes: [
             "id",
@@ -47,10 +47,17 @@ router.post('/', withAuth, async (req, res) => {
                     'post_id', 
                     'user_id'
                 ],
+                include: [
+                  {
+                    model: users,
+                    attributes: [
+                      'username'
+                    ]
+                  }
+                ]
             }
-        ]
+          ]
       })
-
     .then (postData => {
        if(!postData) {
            res.status(404).json({ message:'No such post exists'});
@@ -58,7 +65,7 @@ router.post('/', withAuth, async (req, res) => {
        } res.json(postData);
     })
     .catch (err => {
-        res.status(500).json(err);
+        res.status(500).json({message: 'oops!'});
     });
 });
 

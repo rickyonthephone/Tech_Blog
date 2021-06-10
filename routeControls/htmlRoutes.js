@@ -36,7 +36,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/posts/:id', withAuth, async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
     try {
       const postData = await posts.findByPk(req.params.id, {
         include: [
