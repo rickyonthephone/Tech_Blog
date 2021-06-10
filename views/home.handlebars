@@ -1,42 +1,22 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
-
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
+<!-- Loop over each object in the projects array -->
+{{#each post as  | posts | }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <a href="/post/{{post.id}}">{{post.title}}</a>
+    </h2>
+    <p>
+      <span for="img" aria-label="money"></span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
+      needed!
+    </p>
+    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
   </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
+  <div class="col-md-7">
+    <p>
+      {{project.description}}
+    </p>
   </div>
 </div>
-
-<script src="./js/login.js"></script>
+{{/each}}

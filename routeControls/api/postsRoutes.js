@@ -18,8 +18,8 @@ router.post('/', withAuth, async (req, res) => {
   });
 
   //Get a specific post by it's id
-  router.get('/:id', withAuth, (req, res) => {
-      posts.findbyPk({
+  router.get('/:id', (req, res) => {
+      posts.findByPk({
           where: {
             id: req.params.id,
             user_id: req.session.user_id,
