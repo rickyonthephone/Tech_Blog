@@ -1,22 +1,58 @@
 const router = require('express').Router();
 const { users } = require('../../models');
+const session = require('express-session')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 
-//add a new user to api using sign up data (CREATE method of CRUD)
-router.post('/', async (req, res) => {
-    try {
-      const userData = await users.create(req.body);
-  
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
-  
-        res.status(200).json(userData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
+router.get('/', (req, res) => {
+  users.findAll ({
+    attributes: {exclude: ['password'] }
+  })
+  .then (dbUserData => res.json(dbUserData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err)
   });
+});
+
+
+
+
+
+//add a new user to api using sign up data
+router.post('/', (req, res) => {
+  users.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  })
+  .then (dbUserData => {
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json(dbUserData);
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+});
+  //   try {
+  //     const userData = await users.create(req.body);
+  
+  //     req.session.save(() => {
+  //       req.session.user_id = userData.id;
+  //       req.session.logged_in = true;
+  
+  //       res.status(200).json(userData);
+  //     });
+  //   } catch (err) {
+  //     res.status(400).json(err);
+  //   }
+  // });
 
 //to log users in, first validate email from the users model (READ method of CRUD)
 router.post('/login', async (req, res) => {

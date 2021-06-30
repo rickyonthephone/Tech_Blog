@@ -16,6 +16,7 @@ const loginFormHandler = async (event) => {
             headers: {'Content-type': 'application/json'},
         });
         if (login.ok) {
+            alert('You are now logged in!')
             document.location.replace('/home');    //correct this redirect
         } else {
             alert(login.statusText);
@@ -23,32 +24,4 @@ const loginFormHandler = async (event) => {
     }
 };
 
-const signupFormHandler = async (event) => {
-    event.preventDefault();
-
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();  
-    
-    if (email && password) {
-        const login = await fetch('api/users/login', {
-            method: 'POST',
-            body: json.stringify(
-                {
-                    name,
-                    email, 
-                    password,
-                }),
-            headers: {'Content-type': 'application/json'},
-        });
-        if (login.ok) {
-            document.location.replace('/home');    //correct this redirect
-        } else {
-            alert(login.statusText);
-        }
-    }
-};
-
-
-document.querySelector('.log-form').addEventListener ('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener ('submit', loginFormHandler);

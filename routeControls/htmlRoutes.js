@@ -36,6 +36,16 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/sign-up', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('sign-up');
+});
+
 router.get('/posts/:id', async (req, res) => {
     try {
       const postData = await posts.findByPk(req.params.id, {
