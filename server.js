@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const { seedTechBlogDb } = require('./seeds/seed');
 const routes = require('./routeControls');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connect');
@@ -39,4 +38,3 @@ sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
 
-seedTechBlogDb();

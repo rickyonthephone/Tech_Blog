@@ -24,4 +24,4 @@ const seedTechBlogDb = async () => {
 
 seedTechBlogDb();
 
-module.exports = { seedTechBlogDb };
+
