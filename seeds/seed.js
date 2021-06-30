@@ -2,7 +2,7 @@ const sequelize = require('../config/connect');
 const { posts, users, comments } = require('../models');
 const userData = require('./userData.json');
 const postData = require('./postData.json');
-const commentData = require('./comments.json');
+const commentData = require('./commentData.json');
 
 const seedTechBlogDb = async () => {
     await sequelize.sync({ force: true });
@@ -23,3 +23,5 @@ const seedTechBlogDb = async () => {
 
 
 seedTechBlogDb();
+
+module.exports = { seedTechBlogDb };
