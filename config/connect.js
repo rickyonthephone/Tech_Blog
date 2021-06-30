@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = process.env.JAWSDB_ROSE_URL
