@@ -5,7 +5,8 @@
       "snippet": "JavaScript is everywhere on the web.",
       "post": "JavaScript is everywhere on the web. For that reason I think it is the most important language to learn.", 
       "industry_years": 1,
-      "date_posted": "Apr 5, 2020"
+      "date_posted": "Apr 5, 2020",
+      "user_id": 3
     },
     {
       "username": "DisForDash",
@@ -13,7 +14,8 @@
       "snippet": "CSS can be a real pain",
       "post": "CSS can be a real pain, but here are some tips and tricks to make CSS and you get along better.", 
       "industry_years": 3,
-      "date_posted": "Jan 23, 2018"
+      "date_posted": "Jan 23, 2018",
+      "user_id": 1
     },
     {
       "username": "JackSansSmack",
@@ -21,7 +23,8 @@
       "snippet": "Are you using Handlebars?",
       "post": "Are you using Handlebars for server-side rendering? Ditch that and use EJS.",
       "industry_years": 8,
-      "date_posted": "Sept 14, 2019"
+      "date_posted": "Sept 14, 2019",
+      "user_id": 2
     }
   ]
   

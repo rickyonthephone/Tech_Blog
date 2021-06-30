@@ -1,11 +1,13 @@
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the posts array -->
 {{#each userPosts as  |posts| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
       {{posts.title}}
-        <h6>     {{posts.snippet}}</h6>
     </h2>
+        <h6>{{posts.snippet}}</h6>
+        <h6>By: {{posts.user.username}}</h6>
+  
     
 </div>
 {{/each}}

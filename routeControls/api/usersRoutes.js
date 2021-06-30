@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { users } = require('../../models');
 const session = require('express-session')
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
 
 
 router.get('/', (req, res) => {
@@ -40,21 +40,7 @@ router.post('/', (req, res) => {
     res.status(500).json(err);
   })
 });
-  //   try {
-  //     const userData = await users.create(req.body);
   
-  //     req.session.save(() => {
-  //       req.session.user_id = userData.id;
-  //       req.session.logged_in = true;
-  
-  //       res.status(200).json(userData);
-  //     });
-  //   } catch (err) {
-  //     res.status(400).json(err);
-  //   }
-  // });
-
-//to log users in, first validate email from the users model (READ method of CRUD)
 router.post('/login', async (req, res) => {
     try {
       const userData = await users.findOne({ where: { email: req.body.email } });

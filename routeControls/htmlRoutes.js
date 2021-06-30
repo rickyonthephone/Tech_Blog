@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { users, posts, comments } = require('../models');
+const { posts, users, comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -10,13 +10,13 @@ router.get('/', async (req, res) => {
         include: [
           {
             model: users,
-            attributes: ['username'],
+            attributes: ['username']
           },
         ],
       });
       //Serialization
       const userPosts = postData.map((userPosts) => userPosts.get({ plain: true }));
-
+      console.log(userPosts);
       res.render('home', {
           userPosts,
           logged_in: req.session.logged_in
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/');
@@ -36,7 +36,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/sign-up', (req, res) => {
+router.get('/sign-up', withAuth, (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/');
@@ -46,7 +46,7 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up');
 });
 
-router.get('/posts/:id', async (req, res) => {
+router.get('/posts/:id', withAuth, async (req, res) => {
     try {
       const postData = await posts.findByPk(req.params.id, {
         include: [
