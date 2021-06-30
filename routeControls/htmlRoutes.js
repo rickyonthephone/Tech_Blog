@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       //Serialization
       const userPosts = postData.map((userPosts) => userPosts.get({ plain: true }));
       console.log(userPosts);
-      res.render('/home', {
+      res.render('home', {
           userPosts,
           logged_in: req.session.logged_in
       });
