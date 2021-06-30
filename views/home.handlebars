@@ -1,12 +1,12 @@
 <!-- Loop over each object in the posts array -->
-{{#each userPosts as |posts| }}
+{{#each userPosts as |post| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      {{posts.title}}
+      {{post.title}}
     </h2>
-        <h6>{{posts.snippet}}</h6>
-        <h6>By: {{posts.User.username}}</h6>
+        <h6>{{post.snippet}}</h6>
+        <h6>By: {{post.user.username}}</h6>
   
 {{/each}}
 </div>
